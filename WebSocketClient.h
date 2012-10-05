@@ -34,6 +34,10 @@
 //Uncomment this to use WIFLY Client
 #define WIFLY true
 
+#if WIFLY
+    #include <WiFly.h>
+#endif
+
 class WebSocketClient {
 	public:
 		typedef void (*DataArrivedDelegate)(WebSocketClient client, String data);
@@ -46,7 +50,11 @@ class WebSocketClient {
 	private:
         String getStringTableItem(int index);
         void sendHandshake(char hostname[], char path[]);
+#if WIFLY
+        WiFlyClient _client;
+#else
         EthernetClient _client;
+#endif
         DataArrivedDelegate _dataArrivedDelegate;
         bool readHandshake();
         String readLine();
