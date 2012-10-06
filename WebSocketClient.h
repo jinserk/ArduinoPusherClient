@@ -32,7 +32,7 @@
 #include "Arduino.h"
 
 //Uncomment this to use WIFLY Client
-#define WIFLY true
+#define WIFLY false
 
 #if WIFLY
     #include <WiFly.h>

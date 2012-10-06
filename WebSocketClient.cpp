@@ -72,10 +72,10 @@ void WebSocketClient::disconnect() {
     _client.stop();
 }
 
-void WebSocketClient::monitor () {
+void WebSocketClient::monitor() {
     char character;
     
-	if (_client.available() > 0 && (character = _client.read()) == 0) {
+	if (_client.available() > 0 && (character = _client.read()) != 0) {
         String data = "";
         bool endReached = false;
         while (!endReached) {
@@ -115,6 +115,7 @@ void WebSocketClient::sendHandshake(char hostname[], char path[]) {
     _client.println(line4);
     _client.println(line5);
     _client.println();
+    _client.flush();
 }
 
 bool WebSocketClient::readHandshake() {
@@ -160,5 +161,6 @@ void WebSocketClient::send (String data) {
     _client.print((char)0);
 	_client.print(data);
     _client.print((char)255);
+    _client.flush();
 }
 
