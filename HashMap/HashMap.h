@@ -15,8 +15,8 @@
 ||
 */
 
-#ifndef HASHMAP_H
-#define HASHMAP_H
+#ifndef _HASHMAP_H_
+#define _HASHMAP_H_
 
 //for convenience
 #define CreateHashMap(hashM, ktype, vtype, capacity) HashMap<ktype,vtype,capacity> hashM

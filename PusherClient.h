@@ -23,8 +23,8 @@
  */
 
 
-#ifndef PUSHERCLIENT_H
-#define PUSHERCLIENT_H_
+#ifndef _PUSHERCLIENT_H_
+#define _PUSHERCLIENT_H_
 
 #include <string.h>
 #include <stdlib.h>
